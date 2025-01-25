@@ -1,0 +1,3 @@
+- Allow partial VIN (we don't need the exact ID)
+- Add a logo/favicon
+- Get domain
