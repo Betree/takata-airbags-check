@@ -16,6 +16,7 @@ export function VINChecker() {
   const onSubmit = async (vin: string) => {
     const result = checkAffectedCar(vin);
     setCheckResult(result);
+    console.log("Result:", result);
   };
 
   return (

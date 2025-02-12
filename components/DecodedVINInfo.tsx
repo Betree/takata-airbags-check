@@ -41,7 +41,11 @@ export const DecodedVINInfo = ({
           </div>
           <div>
             <span className="font-semibold">Année modèle : </span>
-            {decodedVIN.info.possibleModelYears.join(", ")}
+            {decodedVIN.info.possibleModelYears.length ? (
+              decodedVIN.info.possibleModelYears.join(", ")
+            ) : (
+              <i>Inconnue</i>
+            )}
           </div>
           <div>
             <span className="font-semibold">Région : </span>

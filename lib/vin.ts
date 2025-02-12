@@ -3,11 +3,11 @@ import { words } from "lodash";
 import {
   ManufacturersInfo,
   AffectedModel,
-  AllManufacturers,
   Manufacturer,
   ManufacturerData,
   NeverAffectedManufacturers,
 } from "./data/affected-cars";
+import untypedCarReferences from "./data/car-references.json";
 
 type CarReference = {
   ma: string; // model abbreviation
@@ -18,8 +18,7 @@ type CarReferences = {
   [key: string]: CarReference;
 };
 
-import rawCarReferences from "./data/car-references.json";
-const carReferences = rawCarReferences as CarReferences;
+const carReferences = untypedCarReferences as CarReferences;
 
 export const validateVINI18n = (
   vin: string
@@ -178,7 +177,7 @@ export const checkAffectedCar = (
   decodedVIN.info.possibleModelYears =
     decodedVIN.info.possibleModelYears?.filter(
       (year) => year >= checkFromYear && year <= checkToYear
-    );
+    ) || [];
 
   const manufacturer = mapLibManufacturer(decodedVIN.info.manufacturer);
   if (!manufacturer) {
