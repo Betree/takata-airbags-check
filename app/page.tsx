@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
   return (
@@ -38,32 +39,34 @@ export default function Home() {
             Pour vérifier si votre véhicule est équipé d'airbags Takata
             défectueux.
           </p>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                variant="outline"
-                className="text-wrap h-auto sm:h-10 sm:text-sm text-xs"
-              >
-                <List size={16} className="mr-2" />
-                Voir la liste des véhicules concernés
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle>Liste des véhicules concernés</DialogTitle>
-              </DialogHeader>
-              <DialogDescription>
-                <ScrollArea className="sm:h-[60vh] border-t">
-                  <AffectedModelsList className="p-4" />
-                </ScrollArea>
-              </DialogDescription>
-            </DialogContent>
-          </Dialog>
-        </div>
 
-        <VINChecker />
-        <Separator className="max-w-2xl mx-auto my-12" />
-        <FAQ />
+          <Card className="max-w-md mx-auto">
+            <CardHeader>
+              <CardTitle>Ce site est en maintenance. </CardTitle>
+            </CardHeader>
+            <CardContent>
+              Rendez-vous sur{" "}
+              <a
+                href="https://www.ecologie.gouv.fr/rappel-airbag-takata"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                https://ecologie.gouv.fr/airbag-takata
+              </a>{" "}
+              ou{" "}
+              <a
+                href="https://www.francetvinfo.fr/replay-magazine/france-2/envoye-special/airbags-potentiellement-dangereux-votre-vehicule-est-il-concerne_7025981.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                https://franceinfo.fr/airbag-takata
+              </a>{" "}
+              pour consulter la liste des véhicules concernés.
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </main>
   );
